@@ -12,6 +12,7 @@
 :root{
     --cor-1:rgba(196, 11, 180, 0.692);
     --cor-2:rgba(197, 178, 199, 0);
+    --cor-3:rgba(86, 83, 87, 0.521);
     --cor-hover:rgb(251, 255, 0);
     --cor-font:rgb(255, 255, 255);
     --cor-p:re#555;
@@ -45,15 +46,16 @@ body{
 .navbar{
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding-bottom: 5px;
 }
 
 nav{
     flex: 1;
     text-align: right;
+    
 }
 
-nav ul{
+#itens-menu{
     display: inline-block;
     list-style-type: none;
 }
@@ -61,21 +63,44 @@ nav ul{
 nav li{
     display: inline-block;
     margin-right: 20px;
+    
 }
 
 nav a{
     text-decoration: none;
-    color: var(--cor-fonte);
+    color: white;
+    transition: 0.5s;
+}
+
+.sacola:hover{
+    background-color: purple;
+    border-radius: 14px;
+    padding: 3px;
+    transition: 0.5s;
+}
+
+nav a:hover{
+    background-color: rgba(128, 0, 128, 0.397);
+    color: #000;
+    border-radius: 30px;
+    padding: 10px;
 }
 
 .banner p{
     color: var(--cor-fonte);
 }
 
+
+.logo img{
+    padding-left: -20px;
+    width: 100px;
+}
+
+
 .logo img:hover{
-        background: rgba(216, 49, 216, 0.185);
+        background: rgba(216, 49, 216, 0.075);
         border-radius: 100%;
-        transition: background 0.8s;
+        transition: 0.8s;
         cursor: pointer;
 }
 
@@ -90,6 +115,44 @@ p{
     justify-content: space-around;
 }
 
+.produtos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.produto{
+    background: #d8c3e3;
+    padding: 8px;              /* menor */
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.produto:hover{
+    transform: scale(1.1);
+}
+
+.produto img{
+    width: 100%;
+    height: 130px;             /* 🔥 menor altura */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.produto h3{
+    color: rgb(54, 47, 47);
+    font-size: 14px;           /* menor texto */
+    margin: 6px 0 2px;
+}
+
+.produto p{
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+}
+
 .col-2{
     flex-basis: 50%;
     min-width: 300px;
@@ -97,11 +160,13 @@ p{
 
 .col-2 img{
     max-width: 80%;
-    padding: 50px;
+    padding: px;
 }
 
-,col-2 h1{
-    font-size: 50px;
+.col-2 h1{
+    font-family: 'poppins', sans-serif;
+    font-weight: 200;
+    font-size: 30px;
     line-height: 60px;
     margin: 20px 0;
 }
@@ -129,10 +194,11 @@ p{
 }
 
 .corpocat{
-    max-width: 1080px;
+    width: 100%;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
+    background: radial-gradient(var(--cor-3), var(--cor-1));
 }
 
 .col-3{
@@ -163,6 +229,18 @@ p{
 .col-4 img{
     width: 100%;
     object-fit: cover;
+    height: 100%;
     object-position: center;
 }
 
+.corpocat h2{
+    position: relative;
+    line-height: 60px;
+    margin: o auto 80px;
+    text-align: center;
+    color: white;
+}
+
+ .col-4 h4 {
+    font-family: Arial, Helvetica, sans-serif;
+ }
