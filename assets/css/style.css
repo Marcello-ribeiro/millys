@@ -6,6 +6,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -43,7 +45,7 @@ main{
 }
 
 .banner .linha{
-    margin-top: 70px;
+    /* sem nada por enquato*/
 }
 
 .container{
@@ -106,16 +108,11 @@ nav a:hover{
     width: 100px;
 }
 
-
-.logo img:hover{
+.logoimg:hover{
         background: rgba(216, 49, 216, 0.075);
         border-radius: 100%;
         transition: 0.8s;
         cursor: pointer;
-}
-
-p{
-    color: var(--cor-p);
 }
 
 .linha{
@@ -220,12 +217,7 @@ p{
     padding-left: 25px;
     padding-right: 25px;
     background: radial-gradient(var(--cor-3), var(--cor-1));
-}
-.corpocat h2{
-     font-family: "Changa One", sans-serif;
-     font-style: italic;
-     font-weight: 300;
-     text-decoration: underline purple;
+    padding-bottom:  30px;
 }
 
 .col-3{
@@ -265,9 +257,41 @@ p{
     line-height: 60px;
     margin: o auto 80px;
     text-align: center;
-    color: white;
+    color: purple;
 }
 
  .col-4 h4 {
     font-family: Arial, Helvetica, sans-serif;
+ }
+
+ aside{
+    text-align: center;
+    padding-top: 20px;
+ }
+
+ aside a{
+    text-decoration: none;
+    color: white;
+    background: rgba(231, 144, 231, 0.623);
+    border-radius: 30px;
+    padding: 7px;
+ }
+ aside a:hover{
+    background-color:var(--cor-1);
+    border-radius: 30px;
+    padding: 7px;
+    transition: 0.5s;
+    color: black;
+ }
+
+ footer{
+    text-align: center;
+    background-color: rgba(128, 0, 128, 0.288);
+    margin: 0px;
+    padding: 0px;
+    font-size: 0.8em;
+ }
+ footer a{
+    text-decoration: none;
+    color: white;
  }
