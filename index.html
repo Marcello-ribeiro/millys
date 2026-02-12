@@ -3,113 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loja virtual</title>
+    <title>Milly's arts</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
 </head>
+
 <body>
 
+<header>
+    <div class="banner">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/img/Logo estética minimalista marrom e branco (1).png" alt="">
+                    </a>
+                </div>
 
-    <main>
-        <!--INICIO BANNER-->
-        <header>
-            <div class="banner">
-                     <!--CORPO-->
-                 <div class="container">
-                        <!--NAVEGAÇÃO-->
-                    <div class="navbar">
-                        <div class="logo">
-                            <a href="index.html"><img src="assets/img/Logo estética minimalista marrom e branco (1).png" alt=""></a>
-        
-                        </div>
-                        <!--  MENU NAVEGAÇÃO-->
-                        <nav>
-                            <ul id="itens-menu">
-                                <li><a href="" title="">Inicio</a></li>
-                                <li><a href="" title="">Produtos</a></li>
-                            </ul>
-                        </nav>
-        
-                        <a href="assets/pages/carrinho.html" class="sacola"><img src="assets/img/carrinho.png" alt="" width="30px" height="30px"></a>
-                    </div>
-                    <!--TXT BANNER-->
-                    <div class="linha">
-                        <div class="col-2">
-                            <h1>Presenteie quem você ama</h1>
-                            <p>
-                                Onde ideias viram presente.
-                                Detalhes que falam por você e transformam gestos simples em algo especial.
-                            </p>
-                           <br> <a href="" class="btn">Mais Info &#8594;</a>
-                        </div>
-                        <div class="col-2">
-                            <img src="assets/img/Gemini_Generated_Image_k58vck58vck58vck (1).png" alt="" >
-                        </div>
-                    </div>
-                 </div>
+                <nav>
+                    <ul id="itens-menu">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Produtos</a></li>
+                    </ul>
+                </nav>
+
+                <!-- ICONE CARRINHO -->
+                <a href="javascript:void(0);" onclick="openCart()">
+                    <img class="sacolac" src="assets/img/carrinho.png"
+                         alt="Carrinho"
+                         width="30"
+                         height="30">
+                </a>
             </div>
-        </header>
-         <!--PRODUTOS EM DESTAQUES-->
-         <div class="categorias">
+
             <div class="linha">
-            <!---INICIO PRODUTOS-->
-         <div class="corpocat">
-                <h2>
-                    &#8595; Produtos em destaque &#8595;
-                </h2>
-               <div class="produtos">
-                <div class="produto">
-                    <img src="assets/img/buque-polaroid.jpeg" alt="buque-polaroid">
-                   <h3 class="nome-produto">
-                        Buquê de borboletas
-                    </h3>
-                        R$ 50,00
-                    <p class="preco">
+                <div class="col-2">
+                    <h1>Presenteie quem você ama</h1>
+                    <p>
+                        Onde ideias viram presente.
+                        Detalhes que falam por você e transformam gestos simples em algo especial.
                     </p>
+                    <br>
+                    <p class="mais-info"><a href="#" class="btn"> Mais Info &#8594;</a></p>
                 </div>
-                <div class="produto">
-                    <img src="assets/img/polaroidss.jpeg" alt="polaroidss">
-                  <h3 class="nome-produto">
-                        polaroids
-                    </h3>
-                        R$ 50,00
-                    <p class="preco">
-                    </p>
-                </div>
-                <div class="produto">
-                    <img src="assets/img/buque-rosa.jpeg" alt="buque-rosa">
-                    <h3 class="nome-produto">
-                        Buquê de borboletas
-                    </h3>
-                        R$ 50,00
-                    <p class="preco">
-                    </p>
-                </div>
-                <div class="produto">
-                    <img src="assets/img/buque-cetim.jpeg" alt="buque-cetim">
-                    <h3 class="nome-produto">
-                        Buquê de cetim
-                    </h3>
-                        R$ 50,00
-                    <p class="preco">
-                    </p>
-                </div>
-        
-         </div>
-         <aside>
-            <h3><a href="#">Mais Produtos &#8594;</a></h3>
-         </aside>
-    </main>
 
-    <footer>
-        <p>Site desenvolvido por <a href="#"> &#x1F517; Marcello</a></p>
-    </footer>
+                <div class="col-2">
+                    <img src="assets/img/Gemini_Generated_Image_k58vck58vck58vck (1).png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-     
+<main>
+    <div class="categorias">
+        <div class="corpocat">
+            <h2>&#8595; Produtos em destaque &#8595;</h2>
 
+            <div class="produtos">
+
+                <div class="produto">
+                    <img src="assets/img/buque-polaroid.jpeg" alt="">
+                    <h3>Buquê de borboletas</h3>
+                    <p>R$ 50,00</p>
+                    <button onclick="addToCart('Buquê de borboletas', 50)">
+                        🛒
+                    </button>
+                </div>
+
+                <div class="produto">
+                    <img src="assets/img/polaroidss.jpeg" alt="">
+                    <h3>Polaroids</h3>
+                    <p>R$ 50,00</p>
+                    <button onclick="addToCart('Polaroids', 50)">
+                        🛒
+                    </button>
+                </div>
+
+                <div class="produto">
+                    <img src="assets/img/buque-rosa.jpeg" alt="">
+                    <h3>Buquê de rosas</h3>
+                    <p>R$ 50,00</p>
+                    <button onclick="addToCart('Buquê de rosas', 50)">
+                        🛒
+                    </button>
+                </div>
+
+                <div class="produto">
+                    <img src="assets/img/buque-cetim.jpeg" alt="">
+                    <h3>Buquê de cetim</h3>
+                    <p>R$ 50,00</p>
+                    <button onclick="addToCart('Buquê de cetim', 50)">
+                        🛒
+                    </button>
+                </div>
+
+            </div>
+             <aside>
+               <p><a href="assets/pages/produtos.html" class="vmais"> Produtos &#8594;</a></p>
+             </aside>
+        </div>
+    </div>
     
+</main>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <scripts src="assets/js/app.js"></scripts>
+
+
+<footer>
+    <p>Site desenvolvido por <a href="#">&#x1F517; Marcello</a></p>
+</footer>
+
+
+
+<!-- SIDEBAR DO CARRINHO -->
+<div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Seu Carrinho</h2>
+        <span onclick="closeCart()" style="cursor:pointer;">✕</span>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-footer">
+        <p id="cartTotal">Total: R$ 0,00</p>
+        <button onclick="finalizarCompra()">Finalizar</button>
+    </div>
+</div>
+
+<!-- SCRIPT SEMPRE NO FINAL -->
+<script src="assets/js/carrinho.js"></script>
+
 </body>
 </html>

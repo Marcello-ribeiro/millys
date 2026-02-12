@@ -1,38 +1,27 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap');
 
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-
 :root{
-    --cor-1:rgba(196, 11, 180, 0.692);
-    --cor-2:rgba(197, 178, 199, 0);
-    --cor-3:rgba(86, 83, 87, 0.521);
-    --cor-hover:rgb(251, 255, 0);
-    --cor-font:rgb(255, 255, 255);
-    --cor-p:re#555;
-    --cor-btn:#563434;
-    --cor-btn-hover:#15ff00;
-    --cor-fonte:#000;
-    --cor-corpo:#555;
-    --cor-fonte-leve:#777;
+    --cor-1: rgba(196, 11, 180, 0.692);
+    --cor-2: rgba(197, 178, 199, 0);
+    --cor-3: rgba(86, 83, 87, 0.521);
+    --cor-fonte: #fff;
 }
 
-
 body{
-    font-family: 'poppins', sans-serif;
-    background-image: linear-gradient(to left, rgba(211, 126, 211, 0.616), rgba(214, 200, 200, 0.644), rgba(255, 192, 203, 0.815));
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(to left,
+        rgba(211, 126, 211, 0.616),
+        rgba(214, 200, 200, 0.644),
+        rgba(255, 192, 203, 0.815));
 }
 
 main{
@@ -40,19 +29,16 @@ main{
     margin: auto;
 }
 
+/* ================= NAVBAR ================= */
+
 .banner{
     background: radial-gradient(var(--cor-2), var(--cor-1));
-}
-
-.banner .linha{
-    /* sem nada por enquato*/
 }
 
 .container{
     max-width: 1400px;
     margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 0 25px;
 }
 
 .navbar{
@@ -64,31 +50,22 @@ main{
 nav{
     flex: 1;
     text-align: right;
-    
 }
 
 #itens-menu{
     display: inline-block;
-    list-style-type: none;
+    list-style: none;
 }
 
 nav li{
     display: inline-block;
     margin-right: 20px;
-    
 }
 
 nav a{
     text-decoration: none;
     color: white;
-    transition: 0.5s;
-}
-
-.sacola:hover{
-    background-color: purple;
-    border-radius: 14px;
-    padding: 3px;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 nav a:hover{
@@ -98,28 +75,98 @@ nav a:hover{
     padding: 10px;
 }
 
-.banner p{
-    color: var(--cor-fonte);
-}
-
-
 .logo img{
-    padding-left: -20px;
     width: 100px;
+    transition: transform 0.5s;
 }
 
 .logoimg:hover{
-        background: rgba(216, 49, 216, 0.075);
-        border-radius: 100%;
-        transition: 0.8s;
-        cursor: pointer;
+    transform: scale(1.1);
 }
+
+.sacolac{
+    width: 30px;
+    height: 30px;
+    transition: transform 0.4s;
+}
+
+.sacolac:hover{
+    transform: scale(1.4);
+}
+
+
+
+/* ================= BANNER ================= */
 
 .linha{
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+}
+
+.col-2:first-child{
+    flex: 1.3;
+}
+
+.col-2:last-child {
+    flex: 0.7;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.col-2 img{
+    max-width: 160px;
+    width: 100%;
+}
+
+.col-2 h1{
+    font-family: "Lobster Two", sans-serif;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.col-2 p{
+    font-weight: 300;
+    color: white;
+}
+
+.col-2 a{
+    padding-bottom: 10px;
+}
+
+.btn{
+    transition: 0.5s;
+    text-decoration: none;
+    color: white;
+    background: rgb(231, 144, 231);
+    padding: 8px 30px;
+    border-radius: 26px;
+    padding-bottom: 10px;
+}
+
+.btn:hover{
+    background: rgba(128, 0, 128, 0.295);
+    color: black;
+}
+
+.mais-info{
+    padding-bottom: 20px;
+}
+
+/* ================= PRODUTOS ================= */
+
+.corpocat{
+    padding: 30px 25px;
+    background: radial-gradient(var(--cor-3), var(--cor-1));
+}
+
+.corpocat h2{
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(184, 184, 184, 0.205);
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
 }
 
 .produtos{
@@ -129,169 +176,160 @@ nav a:hover{
 }
 
 .produto{
-    background: #d8c3e3;
-    padding: 8px;              /* menor */
+    background: #d8c3e3b7;
+    padding: 10px;
     border-radius: 12px;
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.5s;
+    transition: transform 0.3s;
 }
 
 .produto:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .produto img{
     width: 100%;
-    height: 130px;             /* 🔥 menor altura */
+    height: 130px;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .produto h3{
-    color: rgb(54, 47, 47);
-    font-size: 14px;           /* menor texto */
+    font-size: 14px;
     margin: 6px 0 2px;
 }
 
 .produto p{
     font-size: 13px;
     font-weight: bold;
-    margin: 0;
+    color: rgb(97, 4, 97);
 }
 
-.col-2{
-    padding-bottom: 20px;
+/* BOTÃO ADICIONAR */
+
+.produto button{
+    margin-top: 6px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(128, 0, 128, 0.452);
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.3s;
 }
 
-.col-2:first-child {
-    flex: 1.3;   /* texto maior */
+.produto button:hover{
+    background: purple
 }
 
-.col-2:last-child {
-    flex: 0.7;   /* imagem menor */
+/* ================= QUADROS ================= */
+
+.quadro h2{
+    background-color: rgba(128, 0, 128, 0.452);
+    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* ================= OUTROS ================= */
+
+.outros{
+
+}
+
+ 
+
+/* ================= CARRINHO ================= */
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(114, 106, 106, 0.2);
+    transition: 0.3s;
+    padding: 20px;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+.cart-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
+.cart-header span{
+    cursor: pointer;
+    font-size: 18px;
+}
 
-.col-2 img {
-    max-width: 160px;
+.cart-footer {
+    margin-top: 20px;
+}
+
+.cart-footer button{
     width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background: purple;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.col-2 h1{
-     font-family: "Lobster Two", sans-serif;
-    font-weight: 200;
-    font-size: 30px;
-    line-height: 1.2;
-    margin: 10px 0;
+.cart-footer button:hover{
+    background: black;
 }
 
-.col-2 p{
-    font-family: 'poppins', sans-serif;
-    font-weight: 300;
+/* ================= ASIDE ================= */
+
+
+aside{
+    text-align: center;
+    padding-top: 20px;
+
 }
 
-.btn{
+.vmais{
+    transition: 0.5s;
     text-decoration: none;
     color: white;
     background: rgb(231, 144, 231);
     padding: 8px 30px;
-    margin: 30px 0px;
     border-radius: 26px;
-}
-.btn:hover{
-    background: var(--cor-1);
-    color: rgb(0, 0, 0);
-    transition: background 0.5s ;
+    padding-bottom: 10px;
 }
 
-.ctegorias{
-    margin: 70px 0;
+aside p{
+    font-size: 0.8em;
 }
 
-.corpocat{
-    width: 100%;
-    margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
-    background: radial-gradient(var(--cor-3), var(--cor-1));
-    padding-bottom:  30px;
-}
-
-.col-3{
-    flex-basis: 30%;
-    max-width: 250px;
-    margin-bottom: 30px;
-}
-
-.col-3 img{
-    width: 100%;
-    padding-top: 30px;
-    object-fit: cover;
-    object-position: center;
-}
-
-.col-4{
-    flex-basis: 25%;
-    max-width: 200px;
-    padding: 15px;
-    margin-bottom: 50px;
-    transition: transform 0.5s;
-}
-
-.col-4:hover{
-    transform: scale(1.1);
-}
-
-.col-4 img{
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
-    object-position: center;
-}
-
-.corpocat h2{
-    position: relative;
-    line-height: 60px;
-    margin: o auto 80px;
-    text-align: center;
-    color: purple;
-}
-
- .col-4 h4 {
-    font-family: Arial, Helvetica, sans-serif;
- }
-
- aside{
-    text-align: center;
-    padding-top: 20px;
- }
-
- aside a{
-    text-decoration: none;
-    color: white;
-    background: rgba(231, 144, 231, 0.623);
-    border-radius: 30px;
-    padding: 7px;
- }
- aside a:hover{
-    background-color:var(--cor-1);
-    border-radius: 30px;
-    padding: 7px;
-    transition: 0.5s;
+.vmais:hover{
+    background: rgba(128, 0, 128, 0.295);
     color: black;
- }
+}
 
- footer{
+/* ================= FOOTER ================= */
+
+footer{
     text-align: center;
     background-color: rgba(128, 0, 128, 0.288);
-    margin: 0px;
-    padding: 0px;
+    padding: 10px;
     font-size: 0.8em;
- }
- footer a{
+}
+
+footer a{
     text-decoration: none;
     color: white;
- }
+}
