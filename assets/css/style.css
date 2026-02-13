@@ -2,6 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
+
 
 *{
     margin: 0;
@@ -15,6 +18,14 @@
     --cor-3: rgba(86, 83, 87, 0.521);
     --cor-fonte: #fff;
 }
+
+/*=================FONTES==================*/
+
+/*font-family: "Lobster Two", sans-serif;*/
+
+/*font-family: 'Poppins', sans-serif;*/
+
+
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -59,7 +70,7 @@ nav{
 
 nav li{
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
 nav a{
@@ -80,7 +91,7 @@ nav a:hover{
     transition: transform 0.5s;
 }
 
-.logoimg:hover{
+.logo img:hover{
     transform: scale(1.1);
 }
 
@@ -88,6 +99,34 @@ nav a:hover{
     width: 30px;
     height: 30px;
     transition: transform 0.4s;
+}
+
+/* ================= CONTADOR DO CARRINHO ================= */
+
+/* permite posicionar a bolinha em cima do ícone */
+.cart-icon{
+    position: relative;
+    display: inline-block;
+}
+
+/* bolinha vermelha com numero */
+#cart-count{
+    position: absolute; /* flutua sobre o carrinho */
+    top: -6px;          /* sobe */
+    right: -8px;        /* vai pro canto */
+    
+    background: #ff4d6d; /* cor de notificação */
+    color: white;
+    
+    font-size: 11px;
+    font-weight: 700;
+
+    padding: 3px 6px;
+    border-radius: 50px;
+    min-width: 16px;
+    text-align: center;
+
+    pointer-events: none; /* clique continua indo pro carrinho */
 }
 
 .sacolac:hover{
@@ -102,7 +141,7 @@ nav a:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    
 }
 
 .col-2:first-child{
@@ -120,15 +159,22 @@ nav a:hover{
     width: 100%;
 }
 
+.col-2 .mais-info{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .col-2 h1{
-    font-family: "Lobster Two", sans-serif;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
     font-size: 30px;
     margin: 10px 0;
+    color: purple;
 }
 
 .col-2 p{
-    font-weight: 300;
-    color: white;
+    font-family: "Lobster Two", sans-serif;
+    color: rgba(255, 255, 255, 0.753);
+    font-weight: 100;
 }
 
 .col-2 a{
@@ -235,10 +281,6 @@ nav a:hover{
 
 /* ================= OUTROS ================= */
 
-.outros{
-
-}
-
  
 
 /* ================= CARRINHO ================= */
@@ -301,6 +343,49 @@ aside{
 
 }
 
+/* ================= MAIS INFO ================= */
+
+
+.pag-mais-info{
+    background: radial-gradient(var(--cor-2), var(--cor-1));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pag-mais-info h2{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.9em;
+    color: purple;
+}
+
+.pag-mais-info p{
+    padding: 30px;
+    text-align: justify;
+    font-size: 1.2em;
+}
+.bt-compra{
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background: rgb(221, 128, 221);
+    padding:11px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.bt-compra:hover{
+    color: #000;
+    background: purple;
+    transition: 0.5s;
+
+}
+
+
+
+
+
 .vmais{
     transition: 0.5s;
     text-decoration: none;
@@ -332,4 +417,32 @@ footer{
 footer a{
     text-decoration: none;
     color: white;
+}
+
+/* ===== TOAST NOTIFICATION ===== */
+
+.toast{
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    
+    background: rgba(40, 0, 40, 0.95);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 25px;
+    
+    font-size: 14px;
+    font-weight: 500;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.35s ease;
+    z-index: 2000;
+}
+
+/* estado visível */
+.toast.show{
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
