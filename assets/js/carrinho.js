@@ -1,146 +1,164 @@
-// ===== MOSTRAR NOTIFICAÇÃO BONITA =====
-function showToast(mensagem){
+// ===== MODAL BONITO =====
+function showModal(titulo, mensagem){
+    document.getElementById("modalTitulo").innerText = titulo;
+    document.getElementById("modalMensagem").innerText = mensagem;
+    document.getElementById("modalAviso").classList.add("active");
+}
+
+// ===== TOAST =====
+function showToast(msg){
     const toast = document.getElementById("toast");
     if(!toast) return;
 
-    toast.textContent = mensagem;
+    toast.textContent = msg;
     toast.classList.add("show");
 
     setTimeout(()=>{
         toast.classList.remove("show");
-    }, 2200);
+    },2200);
 }
 
+function fecharModal(){
+    document.getElementById("modalAviso").classList.remove("active");
+}
 
-// ===== ATUALIZA NUMERO DO ICONE =====
+// ===== CONTADOR =====
 function updateCartCount(){
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    let contador = document.getElementById("cart-count");
-
-    if(contador){
-        contador.textContent = carrinho.length; // mostra quantidade
-    }
+    let total = carrinho.reduce((s,i)=> s + i.qtd,0);
+    let el = document.getElementById("cart-count");
+    if(el) el.textContent = total;
 }
 
-
-// ===== ABRIR CARRINHO =====
-function openCart() {
+// ===== ABRIR/FECHAR =====
+function openCart(){
     document.getElementById("cartSidebar").classList.add("active");
-    renderCart();
+    atualizarCarrinho();
 }
-
-
-// ===== FECHAR CARRINHO =====
-function closeCart() {
+function closeCart(){
     document.getElementById("cartSidebar").classList.remove("active");
 }
 
-
-// ===== ADICIONAR PRODUTO =====
-function addToCart(nome, preco) {
+// ===== ADICIONAR =====
+function addToCart(nome, preco, img){
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    carrinho.push({ nome, preco });
+    let existente = carrinho.find(i => i.nome === nome);
+
+    if(existente){
+        existente.qtd++;
+    }else{
+        carrinho.push({nome, preco, qtd:1, img});
+    }
+
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-    renderCart();
+    atualizarCarrinho();
     updateCartCount();
-
-    showToast("Adicionado à sacola 🛍️"); // notificação bonita
+    showToast(nome + " adicionado ao 🛒");
 }
 
-
-// ===== REMOVER PRODUTO =====
-function removeItem(index) {
+// ===== + =====
+function aumentarQtd(index){
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-    carrinho.splice(index, 1);
+    carrinho[index].qtd++;
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-    renderCart();
+    atualizarCarrinho();
     updateCartCount();
-
-    showToast("Produto removido ❌");
 }
 
-
-// ===== LIMPAR CARRINHO =====
-function limparCarrinho() {
-    localStorage.removeItem("carrinho");
-
-    renderCart();
-    updateCartCount();
-
-    showToast("Carrinho limpo 🧹");
-}
-
-
-// ===== RENDERIZAR CARRINHO =====
-function renderCart() {
+// ===== - =====
+function diminuirQtd(index){
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    let cartItems = document.getElementById("cartItems");
+    carrinho[index].qtd--;
+
+    if(carrinho[index].qtd <= 0){
+        carrinho.splice(index,1);
+    }
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    atualizarCarrinho();
+    updateCartCount();
+}
+
+// ===== DESENHAR CARRINHO =====
+function atualizarCarrinho(){
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const box = document.getElementById("cartItems");
+    const totalEl = document.getElementById("cartTotal");
+    if(!box) return;
+
+    box.innerHTML = "";
+
+    if(carrinho.length === 0){
+        box.innerHTML = "<p>Seu carrinho está vazio 😢 </p>";
+        totalEl.innerText = "Total: R$ 0,00";
+        return;
+    }
+
     let total = 0;
 
-    if(!cartItems) return; // evita erro em paginas sem carrinho
+    carrinho.forEach((item,index)=>{
+        let subtotal = item.preco * item.qtd;
+        total += subtotal;
 
-    cartItems.innerHTML = "";
+        box.innerHTML += `
+        <div class="cart-item">
 
-    if (carrinho.length === 0) {
-        cartItems.innerHTML = "<p>Seu carrinho está vazio.</p>";
-        document.getElementById("cartTotal").innerText = "Total: R$ 0,00";
-        updateCartCount();
-        return;
-    }
+            <img src="${item.img}" class="cart-thumb">
 
-    carrinho.forEach((item, index) => {
-        total += item.preco;
+            <div class="cart-info">
+                <div class="cart-name">${item.nome}</div>
+                <div class="cart-price">R$ ${item.preco.toFixed(2)}</div>
 
-        cartItems.innerHTML += `
-            <div style="margin-bottom:10px; border-bottom:1px solid #ddd; padding-bottom:5px;">
-                <p><strong>${item.nome}</strong></p>
-                <p>R$ ${item.preco.toFixed(2)}</p>
-                <button onclick="removeItem(${index})"
-                        style="background:red; color:white; border:none; padding:4px 8px; border-radius:10px; cursor:pointer;">
-                    Remover
-                </button>
+                <div class="cart-qtd">
+                    <button onclick="diminuirQtd(${index})">−</button>
+                    <span>${item.qtd}</span>
+                    <button onclick="aumentarQtd(${index})">+</button>
+                </div>
             </div>
-        `;
+
+            <div class="cart-subtotal">
+                R$ ${subtotal.toFixed(2)}
+            </div>
+
+        </div>`;
     });
 
-    document.getElementById("cartTotal").innerText =
-        "Total: R$ " + total.toFixed(2);
-
-    updateCartCount();
+    totalEl.innerText = "Total: R$ " + total.toFixed(2);
 }
 
-
-// ===== FINALIZAR COMPRA =====
-function finalizarCompra() {
+// ===== WHATSAPP =====
+function finalizarCompra(){
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-    if (carrinho.length === 0) {
-        showToast("Sua sacola está vazia");
-        return;
-    }
-
-    let mensagem = "Olá, meu pedido é:%0A";
-
-    carrinho.forEach(item => {
-        mensagem += `- ${item.nome} R$ ${item.preco}%0A`;
-    });
-
-    mensagem += "%0ATotal: R$ " +
-        carrinho.reduce((acc, item) => acc + item.preco, 0).toFixed(2);
-
-    window.open(`https://wa.me/5582991156122?text=${mensagem}`);
-
-    limparCarrinho();
-
-    showToast("Pedido enviado ao WhatsApp 📲");
+   if(carrinho.length === 0){
+    showModal("Carrinho vazio", "Você ainda não escolheu nenhum mimo 😢");
+    return;
 }
 
+let pagamento = document.getElementById("formaPagamento").value;
+if(!pagamento){
+    showModal("Ops!", "Escolha a forma de pagamento antes de finalizar ✨");
+    return;
+}
 
-// ===== CARREGAR CONTADOR AO ENTRAR NO SITE =====
-document.addEventListener("DOMContentLoaded", () => {
-    updateCartCount();
-});
+    let msg = "NOVO PEDIDO — Milly's Arts*\n\n";
+    let total = 0;
+
+   carrinho.forEach(item=>{
+        let sub = item.preco * item.qtd;
+        total += sub;
+        msg += "→ " + item.nome + "\n";
+        msg += "Quantidade: " + item.qtd + "\n";
+        msg += "Subtotal: R$ " + sub.toFixed(2) + "\n\n";
+    });
+
+    msg += "━━━━━━━━━━━━━━\n";
+    msg += ` TOTAL: R$ ${total.toFixed(2)}\n`;
+    msg += ` Pagamento: ${pagamento}`;
+
+    let numero = "5582991156122";
+    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`,"_blank");
+}
+
+// ===== INIT =====
+document.addEventListener("DOMContentLoaded", updateCartCount);

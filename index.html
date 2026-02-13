@@ -1,146 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milly's arts</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milly's arts</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon">
 </head>
 
 <body>
 
 <header>
-    <div class="banner">
-        <div class="container">
-            <div class="navbar">
+<div class="banner">
+<div class="container">
+<div class="navbar">
 
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/img/Logo estética minimalista marrom e branco (1).png" alt="">
-                    </a>
-                </div>
+<div class="logo">
+<a href="/index.html">
+<img src="assets/img/Logo estética minimalista marrom e branco (1).png">
+</a>
+</div>
 
-                <nav>
-                    <ul id="itens-menu">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="assets/pages/produtos.html">Produtos</a></li>
-                    </ul>
-                </nav>
+<nav>
+<ul id="itens-menu">
+<li><a href="index.html">Inicio</a></li>
+<li><a href="assets/pages/produtos.html">Produtos</a></li>
+</ul>
+</nav>
 
-                <!-- ICONE DO CARRINHO + CONTADOR -->
-                <!-- span mostra quantos produtos estão na sacola -->
-                <a href="javascript:void(0);" onclick="openCart()" class="cart-icon">
-                    <img class="sacolac" src="assets/img/carrinho.png"
-                         alt="Carrinho"
-                         width="30"
-                         height="30">
+<a href="#" onclick="openCart(); return false;" class="cart-icon">
+<img class="sacolac" src="assets/img/carrinho.png" width="30" height="30">
+<span id="cart-count">0</span>
+</a>
 
-                    <span id="cart-count">0</span> <!-- numero flutuante -->
-                </a>
+</div>
 
-            </div>
+<div class="linha">
+<div class="col-2">
+<h1>Presenteie quem você ama</h1>
+<p>
+Onde ideias viram presente.
+Detalhes que falam por você e transformam gestos simples em algo especial.
+</p>
 
-            <div class="linha">
-                <div class="col-2">
-                    <h1>Presenteie quem você ama</h1>
-                    <p>
-                        Onde ideias viram presente.
-                        Detalhes que falam por você e transformam gestos simples em algo especial.
-                    </p>
-                    <br>
-                    <p class="mais-info">
-                        <a href="assets/pages/mais-info.html" class="btn">
-                            Mais Info &#8594;
-                        </a>
-                    </p>
-                </div>
+<p class="mais-info">
+<a href="assets/pages/mais-info.html" class="btn">Mais Info →</a>
+</p>
+</div>
 
-                <div class="col-2">
-                    <img src="assets/img/Gemini_Generated_Image_k58vck58vck58vck (1).png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="col-2">
+<img src="assets/img/Gemini_Generated_Image_k58vck58vck58vck (1).png">
+</div>
+</div>
+</div>
+</div>
 </header>
 
 <main>
-    <div class="categorias">
-        <div class="corpocat">
-            <h2>&#8595; Produtos em destaque &#8595;</h2>
+<div class="categorias">
+<div class="corpocat">
+<h2>↓ Produtos em destaque ↓</h2>
 
-            <div class="produtos">
+<div class="produtos">
 
-                <!-- PRODUTO 1 -->
-                <div class="produto">
-                    <img src="assets/img/buque-polaroid.jpeg" alt="">
-                    <h3>Buquê de borboletas</h3>
-                    <p>R$ 50,00</p>
+<div class="produto">
+<img src="assets/img/buque-polaroid.jpeg">
+<h3>Buquê de borboletas</h3>
+<p>R$ 50,00</p>
+<button onclick="addToCart('Buquê de borboletas',50,'assets/img/buque-polaroid.jpeg')">🛒</button>
+</div>
 
-                    <!-- chama função JS e adiciona ao carrinho -->
-                    <button onclick="addToCart('Buquê de borboletas', 50)">🛒</button>
-                </div>
+<div class="produto">
+<img src="assets/img/polaroidss.jpeg">
+<h3>Polaroids</h3>
+<p>R$ 1,00</p>
+<button onclick="addToCart('Polaroids',1,'assets/img/polaroidss.jpeg')">🛒</button>
+</div>
 
-                <!-- PRODUTO 2 -->
-                <div class="produto">
-                    <img src="assets/img/polaroidss.jpeg" alt="">
-                    <h3>Polaroids</h3>
-                    <p>R$ 50,00</p>
-                    <button onclick="addToCart('Polaroids', 50)">🛒</button>
-                </div>
+<div class="produto">
+<img src="assets/img/buque-rosa.jpeg">
+<h3>Buquê de rosas</h3>
+<p>R$ 50,00</p>
+<button onclick="addToCart('Buquê de rosas',50,'assets/img/buque-rosa.jpeg')">🛒</button>
+</div>
 
-                <!-- PRODUTO 3 -->
-                <div class="produto">
-                    <img src="assets/img/buque-rosa.jpeg" alt="">
-                    <h3>Buquê de rosas</h3>
-                    <p>R$ 50,00</p>
-                    <button onclick="addToCart('Buquê de rosas', 50)">🛒</button>
-                </div>
+<div class="produto">
+<img src="assets/img/buque-cetim.jpeg">
+<h3>Buquê de cetim</h3>
+<p>R$ 50,00</p>
+<button onclick="addToCart('Buquê de cetim',50,'assets/img/buque-cetim.jpeg')">🛒</button>
+</div>
 
-                <!-- PRODUTO 4 -->
-                <div class="produto">
-                    <img src="assets/img/buque-cetim.jpeg" alt="">
-                    <h3>Buquê de cetim</h3>
-                    <p>R$ 50,00</p>
-                    <button onclick="addToCart('Buquê de cetim', 50)">🛒</button>
-                </div>
+</div>
 
-            </div>
+<aside>
+<p><a href="assets/pages/produtos.html" class="vmais">Produtos →</a></p>
+</aside>
 
-            <aside>
-               <p><a href="assets/pages/produtos.html" class="vmais"> Produtos &#8594;</a></p>
-            </aside>
-
-        </div>
-    </div>
+</div>
+</div>
 </main>
 
 <footer>
-    <p>Site desenvolvido por <a href="#">&#x1F517; Marcello</a></p>
+<p>Site desenvolvido por <a href="#">🔗 Marcello</a></p>
 </footer>
 
 <!-- SIDEBAR DO CARRINHO -->
 <div id="cartSidebar" class="cart-sidebar">
 
-    <div class="cart-header">
-        <h2>Seu Carrinho</h2>
-        <span onclick="closeCart()" style="cursor:pointer;">✕</span>
-    </div>
+<div class="cart-header">
+<h2>Seu Carrinho</h2>
+<span onclick="closeCart()">✕</span>
+</div>
 
-    <!-- aqui os produtos são renderizados via JS -->
-    <div id="cartItems"></div>
+<div id="cartItems"></div>
 
-    <div class="cart-footer">
-        <p id="cartTotal">Total: R$ 0,00</p>
-        <button onclick="finalizarCompra()">Finalizar</button>
-    </div>
+<div class="cart-footer">
+<p id="cartTotal">Total: R$ 0,00</p>
+
+<div class="pagamento-box">
+<label>Forma de pagamento:</label>
+<select id="formaPagamento">
+<option value="">Selecione</option>
+<option value="Pix">Pix</option>
+<option value="Cartão">Cartão</option>
+<option value="Espécie">Espécie</option>
+</select>
+</div>
+
+<button onclick="finalizarCompra()">Finalizar comprinhas ✨</button>
+</div>
 
 </div>
-<!-- NOTIFICAÇÃO FLUTUANTE -->
+
 <div id="toast" class="toast"></div>
 
+<!-- MODAL BONITO -->
+<div id="modalAviso" class="modal">
+  <div class="modal-box">
 
-<!-- SCRIPT DO CARRINHO (responsável por adicionar produtos, abrir sidebar e atualizar contador) -->
+    <div class="modal-icon">🛍️</div>
+
+    <h3 id="modalTitulo">Aviso</h3>
+    <p id="modalMensagem">Mensagem aqui</p>
+
+    <button onclick="fecharModal()">Entendi</button>
+
+  </div>
+</div>
+
 <script src="assets/js/carrinho.js"></script>
 
 </body>

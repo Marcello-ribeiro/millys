@@ -421,28 +421,244 @@ footer a{
 
 /* ===== TOAST NOTIFICATION ===== */
 
-.toast{
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    
-    background: rgba(40, 0, 40, 0.95);
-    color: white;
-    padding: 12px 18px;
-    border-radius: 25px;
-    
-    font-size: 14px;
-    font-weight: 500;
 
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.35s ease;
-    z-index: 2000;
+/* ================= ITENS DO CARRINHO (NOVO VISUAL) ================= */
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
 }
 
-/* estado visível */
+/* miniatura do produto */
+.cart-thumb{
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+
+/* bloco de informações */
+.cart-info{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart-name{
+    font-size:14px;
+    font-weight:600;
+    color:#333;
+}
+
+.cart-price{
+    font-size:12px;
+    opacity:.6;
+}
+
+/* controle de quantidade */
+.cart-qtd{
+    margin-top:6px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+/* botões redondos */
+.cart-qtd button{
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    border:none;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* botão - */
+.cart-qtd button:first-child{
+    background:#ececec;
+    color:#444;
+}
+
+/* botão + */
+.cart-qtd button:last-child{
+    background:linear-gradient(135deg,#b000b5,#6b1a75);
+    color:white;
+}
+
+/* hover animado */
+.cart-qtd button:hover{
+    transform:scale(1.18);
+}
+
+/* subtotal */
+.cart-subtotal{
+    font-weight:700;
+    color:#6b1a75;
+    font-size:14px;
+}
+
+/* total */
+#cartTotal{
+    font-weight:700;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+/* ===== SELECT PAGAMENTO BONITO ===== */
+
+.pagamento-box{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:12px;
+    font-size:13px;
+    font-weight:500;
+    color:#444;
+}
+
+.pagamento-box select{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    padding:10px 12px;
+    border-radius:14px;
+    border:2px solid #e3c5e7;
+
+    background:linear-gradient(white, #faf5fb);
+    font-family:'Poppins', sans-serif;
+    font-size:14px;
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+/* seta personalizada */
+.pagamento-box{
+    position:relative;
+}
+
+.pagamento-box::after{
+    content:"▾";
+    position:absolute;
+    right:14px;
+    top:34px;
+    pointer-events:none;
+    color:#7b1fa2;
+    font-size:14px;
+}
+
+/* foco */
+.pagamento-box select:focus{
+    outline:none;
+    border-color:#a000b0;
+    box-shadow:0 0 0 3px rgba(160,0,176,.15);
+}
+
+/* hover */
+.pagamento-box select:hover{
+    border-color:#b200c7;
+}
+
+
+/* ===== MODAL AVISO ===== */
+.modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+}
+
+.modal.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-box{
+    background: linear-gradient(180deg,#2a1c1f,#1a1113);
+    padding: 28px;
+    border-radius: 18px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+    transform: scale(.85);
+    transition: .25s;
+    color: #fff;
+}
+
+.modal.active .modal-box{
+    transform: scale(1);
+}
+
+.modal-icon{
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.modal-box h3{
+    margin: 8px 0 6px;
+    font-weight: 600;
+}
+
+.modal-box p{
+    opacity: .85;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.modal-box button{
+    background: #f3a8b8;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.modal-box button:hover{
+    transform: scale(1.06);
+    background: #ffb8c7;
+}
+
+/* ===== TOAST BONITO ===== */
+.toast{
+    position: fixed;
+    left: 50%;
+    bottom: 45px;
+    transform: translateX(-50%) translateY(30px);
+    background: radial-gradient(var(--cor-2), var(--cor-1));
+    color: #000000;
+    padding: 10px;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: .35s cubic-bezier(.22,1,.36,1);
+    z-index: 10000;
+    text-align: center;
+}
+
 .toast.show{
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+
